@@ -1,20 +1,59 @@
 body {
-    background-color: #eaf3b5;
+    background-color: #000000;
+    color: #32b338;
+    font-family: 'Fira Sans', monospace;
 }
 #title {
     color: coral;
     margin: auto;
-    width: auto;
+    width: square;
     border: 3px solid coral;
     font-family: "Lucida Console", "Courier New", monospace;
+    text-shadow: 2px 2px 4px #ffffff;
 }
 #subtitle {
     color: #7f1e83;
     size: 20px;
+    -webkit-animation: rainbow 5s infinite;
 }
+
+@-webkit-keyframes rainbow {
+    0% {
+        color: #ff0000;
+    }
+    20% {
+        color: #ff7f00;
+    }
+    40% {
+        color: #ffff00;
+    }
+    60% {
+        color: #00ff00;
+    }
+    80% {
+        color: #0000ff;
+    }
+    100% {
+        color: #ff00ff;
+    }
+}
+
 .center {
     margin: auto;
-    align: center;
+    font-family: 'VT323', monospace;
     width : 50%;
     padding: 10px;
+    text-align: center;
+}
+
+#hackz {
+    color: #d4062c;
+    text-decoration:underline;
+    text-underline-offset: 5px;
+}
+
+.content {
+    color: #32b338;
+    font-family: 'Fira Sans', monospace;
+    text-align: center;
 }
