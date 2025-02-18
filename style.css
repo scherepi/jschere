@@ -1,6 +1,6 @@
 body {
     background-color: #000000;
-    color: #32b338;
+    color: #28f032;
     font-family: 'Fira Sans', monospace;
 }
 #title {
@@ -37,6 +37,21 @@ body {
     }
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.actuallybutton {
+    background-color:#000000;
+    font-size: 30px;
+    color:#00ff00;
+    border: 2px solid #00ff00;
+    font-family: 'VT323', monospace;
+    margin: 10px;
+}
+
 .center {
     margin: auto;
     font-family: 'VT323', monospace;
@@ -52,7 +67,7 @@ body {
 }
 
 .content {
-    color: #32b338;
-    font-family: 'Fira Sans', monospace;
+    color: #4af51b;
+    font-family: 'Doto', monospace;
     text-align: center;
 }
