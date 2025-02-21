@@ -34,6 +34,7 @@ const rainbowFrames = [
     {color: "#00ff00"},
     {color: "#0000ff"},
     {color: "#ff00ff"},
+    {color: "#ff0000"}
 ];
 // timing object for the rainbow animation
 const rainbowTiming = {

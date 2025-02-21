@@ -1,0 +1,80 @@
+/* why are you here? trying to snoop on my CSS? it's not all that... */
+/* thank you, of course, to w3schools, our lord and savior */
+
+body {
+    background-color: #000000;
+    color: #9666ff;
+    font-family: 'VT323', monospace;
+}
+#title {
+    color: rgb(255, 226, 9);
+    margin: auto;
+    width: square;
+    font-family: "VT323", "Courier New", monospace;
+    text-shadow: 0px 2px #ffffff;
+}
+
+#subtitle {
+    color: #20ef3f;
+    size: 20px;
+}
+
+@keyframes rainbow {
+    0% {
+        color: #ff0000;
+    }
+    20% {
+        color: #ff7f00;
+    }
+    40% {
+        color: #ffff00;
+    }
+    60% {
+        color: #00ff00;
+    }
+    80% {
+        color: #0000ff;
+    }
+    100% {
+        color: #ff00ff;
+    }
+}
+
+.center {
+    margin: auto;
+    font-family: 'VT323', monospace;
+    width : 50%;
+    padding: 10px;
+    text-align: center;
+}
+
+/* i love you w3schools */
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #000;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: dashed #00ff00;
+    text-align: center;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #1a1919;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #000000;
+    border: dashed #138c13;
+    border-top-style: none;
+  }
