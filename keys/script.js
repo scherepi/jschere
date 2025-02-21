@@ -56,10 +56,10 @@ for (i = 0; i < coll.length; i++) {
         var content = this.nextElementSibling;
         if (content.style.display === "block") {
             content.style.display = "none";
-            collAnims[i].pause();
+            //collAnims[i].pause();
         } else {
             content.style.display = "block";
-            collAnims[i].play();
+            //collAnims[i].play();
         }
     });
 }
