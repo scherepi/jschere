@@ -9,6 +9,10 @@ console.log("oooooooooooooooh.....");
 const title = document.getElementById("title");
 const subtitle = document.getElementById("subtitle");
 
+// ------------------------------------------------------------
+
+// MOUSEOVER EVENTS
+
 // bother the user if we catch them mousing over an image, lol
 var images = document.querySelectorAll("img");
 images.forEach(image => {
@@ -20,8 +24,22 @@ function imgSnoop() {
     document.title = "ooh nice image"; // change the title to our silly thing
     setTimeout(() => {
         document.title = original; // change the title back after 5 seconds!
-    }, 5000);
+    }, 3000);
 }
+
+// encourage them if they're mousing over a link!!
+var buttons = document.querySelectorAll("a");
+buttons.forEach(button => {
+    button.addEventListener("mouseover", () => {
+        let original = document.title;
+        document.title = "click it!!";
+        setTimeout(() => {
+            document.title = original;
+        }, 3000);
+    });
+})
+
+// ------------------------------------------------------------
 
 // ANIMATIONS
 
