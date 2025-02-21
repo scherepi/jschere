@@ -23,6 +23,8 @@ function imgSnoop() {
     }, 5000);
 }
 
+// ANIMATIONS
+
 // animate the color changing and control its playback
 
 var subtitleElement = document.getElementById("subtitle");
@@ -58,3 +60,18 @@ subtitleElement.addEventListener("mouseout", function() {
     rainbowAnim.play();
 })
 
+// animate the image borders
+
+var imageElements = document.getElementsByClassName("image");
+const borderFrames = [
+    {border: "dashed 2px #00ff00"},
+    {border: "dotted 2px #00ff00"}
+]
+for (let i = 0; i < imageElements.length; i++) {
+    imageElements[i].animate(borderFrames, {
+        duration: 1000,
+        iterations: Infinity,
+        direction: "alternate",
+        easing: "ease-in-out"
+    });
+}
