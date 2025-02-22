@@ -79,3 +79,8 @@ body {
     font-family: 'Doto', monospace;
     text-align: center;
 }
+
+.link {
+    color:#b12bb6;
+    text-decoration: none;
+}
