@@ -10,6 +10,20 @@ const title = document.getElementById("title");
 const subtitle = document.getElementById("subtitle");
 
 // ------------------------------------------------------------
+let visitCount = 0;
+// LOCAL STORAGE CHECK:
+if (localStorage.visitCount) {
+    visitCount = Number(localStorage.visitCount);
+    if (visitCount == 1) {
+        document.getElementById("counter").innerText = `you've been here ${visitCount} time! thanks!` // show the visit count
+    } else {
+        document.getElementById("counter").innerText = `you've been here ${visitCount} times! thanks!` // show the visit count
+    }
+    localStorage.visitCount = Number(localStorage.visitCount) + 1;
+} else {
+    document.getElementById("counter").hidden = true; // hide the counter if it's the first visit
+    localStorage.visitCount = 1;
+}
 
 // MOUSEOVER EVENTS
 
