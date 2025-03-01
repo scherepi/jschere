@@ -3,6 +3,8 @@ body {
     color: #28f032;
     font-family: 'VT323', monospace;
 }
+
+
 #counter {
     position: absolute;
     top: 10px;
@@ -64,6 +66,8 @@ body {
     color: #4af51b;
     font-family: 'Doto', monospace;
     text-align: center;
+    margin-inline-start: 15%;
+    margin-inline-end: 15%;
 }
 
 .link {
