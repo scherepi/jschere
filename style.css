@@ -135,6 +135,14 @@ p > a:hover {
     color: orange;
 }
 
+p > strong {
+    color: yellow;
+}
+p > strong:hover {
+    color: red;
+    text-shadow: 1px 2px 0 #ffffff;
+}
+
 /* figcaptions placed immediately after images */
 img + figcaption {
     color: orangered;
