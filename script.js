@@ -77,19 +77,40 @@ const rainbowTiming = {
 };
 
 // add the rainbow animation to the subtitle
-const rainbowAnim = subtitleElement.animate(rainbowFrames, rainbowTiming);
+const subtitleRainbowAnim = subtitleElement.animate(rainbowFrames, rainbowTiming);
 
 console.log("should be starting animation");
-rainbowAnim.play();
+subtitleRainbowAnim.play();
 
 subtitleElement.addEventListener("mouseover", function() {
     console.log("you moused over the subtitle!");
-    rainbowAnim.pause();
+    subtitleRainbowAnim.pause();
 })
 
 subtitleElement.addEventListener("mouseout", function() {
     console.log("you moused out of the subtitle!");
-    rainbowAnim.play();
+    subtitleRainbowAnim.play();
+})
+
+// animate the "coding janky little stuff and things"
+const jankRainbow = document.getElementById("jank").animate(rainbowFrames, rainbowTiming);
+jankRainbow.pause(); // pause the animation at first
+document.getElementById("jank").addEventListener("mouseover", function() {
+    jankRainbow.play();
+    jankRainbow.playbackRate = 1; // set the playback rate to 1x
+})
+document.getElementById("jank").addEventListener("mouseout", function() {
+    jankRainbow.pause();
+});
+
+document.getElementById("jank").addEventListener("mousemove", function(e) {
+    // get the mouse position relative to the element
+    const rect = document.getElementById("jank").getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    // calculate the distance from the center of the element
+    // set the playback rate based on the distance from the left
+    console.log("playback speed should be " + (1 + x / 100));
+    jankRainbow.playbackRate = 1 + x / 100; // increase the playback rate based on distance
 })
 
 // animate the image borders
