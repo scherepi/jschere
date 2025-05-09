@@ -40,6 +40,10 @@ body {
     }
 }
 
+h4 > strong {
+    color: #eb1f3a
+}
+
 .center {
     margin: auto;
     font-family: 'VT323', monospace;
