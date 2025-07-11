@@ -6,6 +6,7 @@
     --sofia-color: #a8caff;
     --lou-color: #747272;
     --gabriel-color: #4039a0;
+    --diamond-scale: 6%;
 }
 
 body {
@@ -64,19 +65,43 @@ body {
     border: 10px solid hsl(115, 100%, 50%);
 }
 
+/* Styling for links to my friends' sites*/
+.friendbox a {
+    color: hsl(55, 96%, 56%);
+}
+
 /* Styling for subtitles within friendboxes */
 .friendbox > h6 {
     color: #DDDDDD;
     font-size: 14px;
 }
 
-/* Applying specific border colors based on id */
+@keyframes diagonal-shift {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100px 200px;
+    }
+}
+
+/* Applying specific border colors and decorations based on id */
 #gus {
     border-color: var(--gus-color);
+    background-image: url("data/diamond.svg");
+    background-repeat: repeat;
+    background-size: var(--diamond-scale);
+    animation: diagonal-shift 3s linear infinite;
+}
+
+#machine:hover {
+    color: var(--gus-color);
 }
 
 #sebastian {
     border-color: var(--sebastian-color);
+    position: relative;
+    overflow: hidden;
 }
 
 #meghana {
