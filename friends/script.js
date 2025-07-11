@@ -90,3 +90,74 @@ megDiv.addEventListener("mouseleave", (e) => {
     // End trash can animation
 })
 
+let sirenUp = false;
+
+alexDiv.addEventListener("mouseenter", (e) => {
+    if (sirenUp) { return; }
+    // Siren pop-out
+    let sirenImg = document.createElement("img");
+    sirenImg.src = "./data/alex_siren.gif";
+    sirenImg.style.width = "50px";
+    sirenImg.style.height = "50px";
+    sirenImg.style.position = "absolute";
+    sirenImg.style.zIndex = "-1";
+    sirenImg.style.left = "50%";
+    sirenImg.style.top = "0";
+    sirenImg.style.transform = "translate(-50%, -100%)";
+    sirenImg.id = "siren";
+
+    const movementFrames = [
+        {transform: "translate(-50%, 0)"},
+        {transform: "translate(-50%, -100%)"}
+    ];
+
+    const marginFrames = [
+        {marginTop: "4%"},
+        {marginTop: "70px"}
+    ]
+
+    const movementTiming = {
+        duration: 1000,
+        iterations: 1,
+        fill: "forwards"
+    }
+
+    alexDiv.appendChild(sirenImg);
+    const animationID = sirenImg.animate(movementFrames, movementTiming);
+    alexDiv.animate(marginFrames, movementTiming);
+    setTimeout(() => {
+        sirenUp = true;
+    }, 1000)
+})
+
+alexDiv.addEventListener("mouseleave", (e) => {
+    // Retract and delete the siren image
+    let sirenImg = document.getElementById("siren");
+    // Sanity check
+    if (!sirenImg || !sirenUp) { return; }
+
+    const retractionFrames = [
+        {transform: "translate(-50%, -100%)"},
+        {transform: "translate(-50%, 0)"}
+    ]
+
+    const marginFrames = [
+        {marginTop: "70px"},
+        {marginTop: "4%"}
+    ]
+
+    const retractTiming = {
+        duration: 1000,
+        iterations: 1,
+        fill: "forwards"
+    }
+
+    const animationID = sirenImg.animate(retractionFrames, retractTiming);
+    alexDiv.animate(marginFrames, retractTiming);
+
+    setTimeout(() => {
+        sirenImg.remove();
+        alexDiv.style.marginTop = "4%";
+        sirenUp = false;
+    }, 1000);
+})

@@ -110,6 +110,8 @@ body {
 
 #alex {
     border-color: var(--alex-color);
+    position: relative;
+    background-color: #000;
 }
 
 #sofia {
