@@ -99,6 +99,8 @@ alexDiv.addEventListener("mouseenter", (e) => {
     sirenImg.src = "./data/alex_siren.gif";
     sirenImg.style.width = "50px";
     sirenImg.style.height = "50px";
+    alexAudio.currentTime = 0;
+    alexAudio.play().catch(err => console.log("Audio play error: ", err))    
     sirenImg.style.position = "absolute";
     sirenImg.style.zIndex = "-1";
     sirenImg.style.left = "50%";
@@ -133,6 +135,7 @@ alexDiv.addEventListener("mouseenter", (e) => {
 alexDiv.addEventListener("mouseleave", (e) => {
     // Retract and delete the siren image
     let sirenImg = document.getElementById("siren");
+    document.getElementById("alexAudio").pause();
     // Sanity check
     if (!sirenImg || !sirenUp) { return; }
 
@@ -154,10 +157,9 @@ alexDiv.addEventListener("mouseleave", (e) => {
 
     const animationID = sirenImg.animate(retractionFrames, retractTiming);
     alexDiv.animate(marginFrames, retractTiming);
+    sirenUp = false;
 
     setTimeout(() => {
         sirenImg.remove();
-        alexDiv.style.marginTop = "4%";
-        sirenUp = false;
     }, 1000);
 })
