@@ -1,6 +1,7 @@
 // Copyright Joaquin Schere, begun 7/7/2025
 
 console.log("these are my amazing friends :)");
+console.log("sanity check");
 
 // Get our nodes
 const gusDiv = document.getElementById("gus");
@@ -8,6 +9,7 @@ const sebDiv = document.getElementById("sebastian");
 const megDiv = document.getElementById("meghana");
 const alexDiv = document.getElementById("alex");
 const sofDiv = document.getElementById("sofia");
+console.log("sofdiv: ", sofDiv);
 const louDiv = document.getElementById("lou");
 const gabDiv = document.getElementById("gabriel");
 
@@ -162,4 +164,59 @@ alexDiv.addEventListener("mouseleave", (e) => {
     setTimeout(() => {
         sirenImg.remove();
     }, 1000);
+})
+
+// Array to hold data for snowflakes
+class Snowflake {
+    constructor(startingX, yVelocity, size) {
+        this.startingX = startingX;
+        this.yVelocity = yVelocity;
+        this.distanceTraveled = (Math.random() * 20) * (Math.random() > 0.5 ? 1 : -1);
+        this.node = document.createElement("div");
+        this.node.id = "snowflake";
+        this.node.style.left = startingX + "%";
+        this.node.style.width = size + "%";
+        this.node.style.height = size + "%";
+    }
+    
+    get SnowflakeFrames() {
+        return [
+            { left: this.startingX + "%", top: "0%"},
+            { left: (this.startingX + this.distanceTraveled) + "%", top: "100%"}
+        ]
+    }
+
+    get SnowflakeTiming() {
+        return {
+            duration: this.yVelocity * 1000,
+            iterations: 1,
+            fill: "forwards"
+        }
+    }
+
+}
+
+let snowflakes = [];
+let snowHandler;
+sofDiv.addEventListener("mouseenter", (e) => {
+    // Sanity check
+    console.log("Starting snowfall...");
+    // Spawn snow
+    snowHandler = setInterval(() => {
+        let randomVelocity = Math.random() * 6 + 1;
+        let snowflake = new Snowflake(Math.round(Math.random() * 80), randomVelocity, Math.random() * 20 + 20);
+        snowflakes.push(snowflake);
+        sofDiv.appendChild(snowflakes[snowflakes.length - 1].node);
+        snowflakes[snowflakes.length - 1].node.animate(snowflake.SnowflakeFrames, snowflake.SnowflakeTiming);
+        // Delete the snowflake from the div when it hits the bottom
+        setTimeout(() => {
+            snowflake.node.remove();
+        }, randomVelocity * 1000 - 500);
+    }, 500)
+})
+
+sofDiv.addEventListener("mouseleave", (e) => {
+    console.log("Ending snowfall")
+    // Quit spawning new snow
+    clearInterval(snowHandler);
 })

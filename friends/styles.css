@@ -116,6 +116,18 @@ body {
 
 #sofia {
     border-color: var(--sofia-color);
+    position: relative;
+}
+
+#snowflake {
+    position: absolute;
+    top: 0;
+    background-image: url("./data/sofflake.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    overflow: hidden;
 }
 
 #lou {

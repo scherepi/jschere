@@ -110,6 +110,7 @@ h4 > strong {
 
 .image {
     border: dashed 2px #00ff00;
+    width: fit-content;
 }
 
 #hackz {
@@ -124,6 +125,17 @@ h4 > strong {
     text-align: center;
     margin-inline-start: 15%;
     margin-inline-end: 15%;
+}
+
+.divider {
+    color: #ff0088;
+    font-family: 'VT323', monospace;
+    text-align: center;
+    margin-inline-start: 30%;
+    margin-inline-end: 30%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 3em;
 }
 
 /* links within the paragraph elements. */
@@ -146,6 +158,5 @@ p > strong:hover {
 /* figcaptions placed immediately after images */
 img + figcaption {
     color: orangered;
-    padding-top: 10px;
+    margin-top: 10px;
 }
-
