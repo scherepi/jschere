@@ -174,6 +174,8 @@ class Snowflake {
         this.distanceTraveled = (Math.random() * 20) * (Math.random() > 0.5 ? 1 : -1);
         this.node = document.createElement("div");
         this.node.id = "snowflake";
+        this.snowflakeOption = Math.ceil(Math.random() * 3) // Either 1, 2, or 3.
+        this.node.style.backgroundImage = `url("./data/sofflake${this.snowflakeOption}.svg")`
         this.node.style.left = startingX + "%";
         this.node.style.width = size + "%";
         this.node.style.height = size + "%";

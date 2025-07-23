@@ -122,7 +122,6 @@ body {
 #snowflake {
     position: absolute;
     top: 0;
-    background-image: url("./data/sofflake.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
