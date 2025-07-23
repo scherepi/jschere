@@ -125,6 +125,7 @@ h4 > strong {
     text-align: center;
     margin-inline-start: 15%;
     margin-inline-end: 15%;
+    background: none;
 }
 
 .divider {

@@ -128,3 +128,105 @@ for (let i = 0; i < imageElements.length; i++) {
         easing: "ease-in-out"
     });
 }
+
+// animate the background with fading stars
+let stars = [];
+
+function generateRandomColor() {
+    const randomNum = Math.floor(Math.random() * 16777216); 
+    let hexColor = randomNum.toString(16);
+    hexColor.padStart(6, "0");
+    return "#" + hexColor;
+}
+
+class PentagramAnim {
+    constructor(centerX, centerY, size, color) {
+        this.centerX = centerX; // this is the POSITION OF THE STAR ON THE PAGE.
+        this.centerY = centerY; // ditto.
+        this.size = size;       // size of both the element and, respectively, the star
+        this.points = [];
+        this.generatePoints(); // Use the variables already set to generate the points for the star.
+        this.rotatePoints(Math.random() * 360); // Random angle
+        this.rootNode = document.createElement("div");
+        const SVG_NS = "http://www.w3.org/2000/svg";        
+        this.svgNode = document.createElementNS(SVG_NS, "svg");
+        this.rootNode.appendChild(this.svgNode);
+        this.svgNode.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        this.svgNode.setAttribute("viewBox", `0 0 ${size} ${size}`);
+        this.svgNode.setAttribute("width", size);
+        this.svgNode.setAttribute("height", size);
+        this.polyLine = document.createElementNS(SVG_NS, "polyline");
+        this.polyLine.setAttribute("fill", "none");
+        this.polyLine.setAttribute("stroke", color);
+        this.svgNode.appendChild(this.polyLine);
+        this.rootNode.id = "pentaAnim"; 
+        this.rootNode.style.position = "fixed";
+        this.rootNode.style.zIndex = "-3";
+        this.rootNode.style.left = (centerX - size / 2) + "px";
+        this.rootNode.style.top = (centerY - size / 2) + "px";
+        this.rootNode.style.width = size + "px";
+        this.rootNode.style.height = size + "px";
+        document.body.appendChild(this.rootNode);
+        this.delayDraw(Math.random() * 500 + 100);
+        this.rootNode.animate(
+            [
+                {opacity: "100%"},
+                {opacity: "0%"}
+            ],
+            {duration: 15000}
+        );
+        setTimeout(() => {
+            document.body.removeChild(this.rootNode);
+        }, 15000)
+    }
+    generatePoints() {
+        console.log("generating points for the star");
+        this.points = [];
+        const cx = this.size / 2;
+        const cy = this.size / 2;
+        const outerRadius = this.size * 0.45;
+        const innerRadius = this.size * 0.18;
+        for (let i = 0; i < 10; i++) {
+            const angle = Math.PI / 2 + i * Math.PI / 5;
+            const r = i % 2 === 0 ? outerRadius : innerRadius;
+            const x = cx + r * Math.cos(angle);
+            const y = cy - r * Math.sin(angle);
+            this.points.push([x, y]);
+        }
+        this.points.push(this.points[0]);
+    }
+    rotatePoints(angle) {
+        console.log(`rotating generated points by angle of ${angle} degrees`);
+        const radians = angle * Math.PI / 180;
+        const originX = this.size / 2;
+        const originY = this.size / 2;
+        this.points = this.points.map(([x, y]) => [
+            originX + (x - originX) * Math.cos(radians) - (y - originY) * Math.sin(radians),
+            originY + (x - originX) * Math.sin(radians) + (y - originY) * Math.cos(radians)
+        ]);
+    }
+    delayDraw(delay) {
+        console.log(`drawing shape from generated points with delay of ${delay}`);
+        let drawnPoints = [this.points[0]];
+        this.polyLine.setAttribute("points", this.points[0].join(","));
+        for (let i = 1; i < this.points.length; i++) {
+            setTimeout(() => {
+                drawnPoints.push(this.points[i]);
+                // Build the points string as "x1,y1 x2,y2 x3,y3 ..."
+                const pointsString = drawnPoints.map(pt => pt.join(",")).join(" ");
+                this.polyLine.setAttribute("points", pointsString);
+            }, i * delay + 500);
+        }
+    }
+}
+
+setInterval(() => { 
+    console.log("creating new star")
+    stars.push(
+        new PentagramAnim(
+            Math.random() * window.innerWidth, 
+            Math.random() * window.innerHeight, 
+            Math.random() * 100 + 40, 
+            generateRandomColor())
+    )
+}, 3000)
