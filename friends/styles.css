@@ -70,6 +70,11 @@ body {
     color: hsl(55, 96%, 56%);
 }
 
+.friendbox a:hover {
+    text-shadow: 2px 0 0 #666;
+    text-decoration: none;
+}
+
 /* Styling for subtitles within friendboxes */
 .friendbox > h6 {
     color: #DDDDDD;
@@ -93,6 +98,9 @@ body {
     background-size: var(--diamond-scale);
     animation: diagonal-shift 3s linear infinite;
 }
+#gus a:hover {
+    color: var(--gus-color);
+}
 
 #machine:hover {
     color: var(--gus-color);
@@ -104,8 +112,16 @@ body {
     overflow: hidden;
 }
 
+#sebastian a:hover {
+    color: var(--sebastian-color);
+}
+
 #meghana {
     border-color: var(--meghana-color);
+}
+
+#meghana a:hover {
+    color: var(--meghana-color);
 }
 
 #alex {
@@ -114,9 +130,17 @@ body {
     background-color: #000;
 }
 
+#alex a:hover {
+    color: var(--alex-color);
+}
+
 #sofia {
     border-color: var(--sofia-color);
     position: relative;
+}
+
+#sofia a:hover {
+    color: var(--sofia-color);
 }
 
 #snowflake {
@@ -133,6 +157,18 @@ body {
     border-color: var(--lou-color);
 }
 
+#lou a:hover {
+    color: var(--lou-color);
+}
+
+#currently-playing {
+    color: #48b4f8;
+}
+
 #gabriel {
     border-color: var(--gabriel-color);
+}
+
+#gabriel a:hover {
+    color: var(--gabriel-color);
 }
