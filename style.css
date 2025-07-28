@@ -113,6 +113,23 @@ h4 > strong {
     width: fit-content;
 }
 
+#babypics {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+#babypics img {
+    max-width: 300px;
+    height: auto;
+}
+
+#babypics figcaption {
+    margin: auto;
+}
+
 #hackz {
     color: #d4062c;
     text-decoration:underline;
@@ -160,4 +177,8 @@ p > strong:hover {
 img + figcaption {
     color: orangered;
     margin-top: 10px;
+}
+/* <strong> tags within image captions */
+img + figcaption > strong {
+    color: hsl(60, 82%, 61%);
 }
