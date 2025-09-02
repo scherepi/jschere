@@ -1,0 +1,57 @@
+/* Styles the page from which my writings of various types are accessed. */
+body {
+    margin: 0 auto;
+    /*background-color: rgba(16, 1, 26, 0.98); */
+    background-color: black;
+}
+
+/* color palette: #000000, #cf0f47, #ff0b55, and #ffdede */
+
+#title {
+    font-family: 'Epunda Slab', serif;
+    font-style: italic;
+    /* color: #efefef; */
+    color: #cf0f47;
+    font-size: 7em;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 2px 2px 3px #efefef
+}
+
+#main {
+    /* background-color: rgba(16, 1, 26, 0.98); */
+    background-color: #ff0b55;
+    color: #ffdede;
+    font-family: 'Crimson Pro', serif;
+    font-size: 2em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 7px solid #cf0f47;
+    border-radius: 20px;
+    padding-inline: 5%;
+    justify-content: center;
+    text-shadow: 3px 3px #cf0f47;
+}
+
+#navigationDiagram {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #cf0f47;
+    color: #ffdede;
+    padding-inline: 5%;
+    border-radius: 20px;
+    font-family: 'Epunda Slab', serif;
+    min-height: 40em;
+    height: 50%;
+    max-height: 50%;
+}
+
+#loadingError {
+    text-align: center;
+    justify-content: center;
+}
