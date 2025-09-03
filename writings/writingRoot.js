@@ -55,10 +55,17 @@ if (canvasElement.getContext) {
     ctx.fillStyle = colorPalette[0];
     ctx.fillRect(0, 0, canvasElement.width, canvasElement.height);
     drawNode(ctx, canvasElement.width / 2, canvasElement.height / 2, 60, "Test");
+    drawNode(ctx, 100, 100, 40, "Test 2!");
 }
 
 function drawNode(context, x, y, size, name, parentX = canvasElement.width / 2, parentY = canvasElement.height / 2) {
     context.fillStyle = colorPalette[3];
+    context.beginPath();
+    context.strokeStyle = colorPalette[3]
+    context.moveTo(parentX, parentY);
+    context.lineTo(x, y);
+    context.stroke();
+    context.closePath();
     context.beginPath();
     context.moveTo(x, y);
     console.log("Drawing larger circle.");
@@ -82,7 +89,7 @@ function drawNode(context, x, y, size, name, parentX = canvasElement.width / 2, 
     context.fillText(name, x, y, size * 1.6);
 }
 
-function drawEndNode(context, x, y, root, name, parentCoords) {
+function drawEndNode(context, x, y, root, name, parentX, parentY) {
     context.fillStyle = colorPalette[3]
 }
 
@@ -95,4 +102,9 @@ function getFittingFontSize(context, text, maxWidth, maxFontSize = 30, minFontSi
         context.font = `italic ${fontSize}px Arial`;
     }
     return fontSize;
+}
+
+function getPointOnCircle(x, y, parentX, parentY, parentRadius) {
+    // This function will do some geometry magic to get the connecting point on a parent node
+    // to which we will draw a line.
 }
