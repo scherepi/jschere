@@ -57,7 +57,7 @@ if (canvasElement.getContext) {
     drawNode(ctx, canvasElement.width / 2, canvasElement.height / 2, 60, "Test");
     drawNode(ctx, 100, 100, 40, "Test 2!");
     drawNode(ctx, 180, 100, 20, "Heehee", 100, 100, 40);
-    drawNode()
+    drawNode(ctx, 100, 20, 20, "Hehe", 100, 100, 40);
 }
 
 function drawNode(context, x, y, size, name, parentX = canvasElement.width / 2, parentY = canvasElement.height / 2, parentSize = 60) {
@@ -111,13 +111,23 @@ function getFittingFontSize(context, text, maxWidth, maxFontSize = 30, minFontSi
 function getPointOnCircle(x, y, parentX, parentY, parentRadius) {
     // This function will do some geometry magic to get the connecting point on a parent node
     // to which we will draw a line.
-    const distanceY = y - parentY;
-    const distanceX = x - parentX;
-    let distanceMagnitude = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2)); // The magnitude of the vector between the new node and the center of its parent.
-    let angleOfDistance = Math.atan((distanceY / distanceX));
-    let newDistance = distanceMagnitude - parentRadius;
+    const deltaX = x - parentX;
+    const deltaY = y - parentY;
+    const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+    if (distance === 0) {
+        // to avoid dividing by zero
+        return {x: parentX, y: parentY}
+    }
+
     return {
-        x: (x + (newDistance * Math.cos(angleOfDistance))),
-        y: (y + (newDistance * Math.sin(angleOfDistance)))
+        x: parentX + (deltaX / distance) * parentRadius,
+        y: parentY + (deltaY / distance) * parentRadius
+    };
+}
+
+class Node {
+    constructor(x, y, size, text, parentNode = false) {
+        
     }
 }
