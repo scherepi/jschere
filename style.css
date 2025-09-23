@@ -73,15 +73,18 @@ h4 > strong {
     justify-content: center;
     margin: 10px;
     background: none;
+    height: fit-content;
 }
 
 .actuallybutton {
+    box-sizing: border-box;
     background-color:#000000;
     font-size: 30px;
     color:#00ff00;
-    border: 2px solid #00ff00;
+    border: 3px solid #00ff00;
     font-family: 'VT323', monospace;
     margin: 10px;
+    padding: 3px 5px;
 }
 
 .actuallybutton:hover {
@@ -94,6 +97,21 @@ h4 > strong {
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+#writings {
+    margin-bottom: 0;
+    font-family: 'Crimson Pro', serif;
+    padding: 10px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: #dedede;
+    background-color: #cf0f47;
+    border: 3px solid #ff0b55;
+}
+
+#writings:hover {
+    border: 3px solid #cf0f47;
 }
 
 .center {
