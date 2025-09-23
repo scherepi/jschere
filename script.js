@@ -229,4 +229,4 @@ setInterval(() => {
             Math.random() * 100 + 40, 
             generateRandomColor())
     )
-}, 3000)
+}, 1500)
