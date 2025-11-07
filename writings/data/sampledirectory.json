@@ -1,0 +1,42 @@
+{
+	"name": "Root",
+	"traits": ["root", "category"], 
+	"children": [
+		{
+			"name": "Analytical",
+			"traits": ["category"],
+			"children": [
+				{
+					"name": "Blah blah blah",
+					"traits": ["post", "essay"],
+					"created-at": 1758247438,
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Personal",
+			"traits": ["category"],
+			"children": [
+				{
+					"name": "Why Write?",
+					"traits": ["post", "introduction"],
+					"created-at": 1758247438,
+					"children": []
+				}
+			]
+		},
+		{
+			"name": "Creative",
+			"traits": ["category"],
+			"children": [
+				{
+					"name": "Stupid Poem #51",
+					"traits": ["post", "poem"],
+					"created-at": 1758247438,
+					"children": []
+				}
+			]
+		}
+	]
+}

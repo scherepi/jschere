@@ -56,6 +56,36 @@ body {
     justify-content: center;
 }
 
+#navigationLegend {
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
+    border-radius: 20px;
+    background-color: #cf0f47;
+    border: 5px solid #ff0b55;
+    color: #ffdede;
+    padding-inline: 5%;
+    font-family: 'Epunda Slab', sans-serif;
+}
+
+.legendMapping {
+    justify-content: center;
+    align-items: center;
+    background-color: #cecece;
+    border-radius: 20px;
+    width: 10%;
+    color: #101010;
+}
+.mappingEntry {
+    width: fit-content;
+}
+
+.mappingEntry img {
+    /* Styles the palette icons */
+    display: inline;
+    border: 1px solid white;
+}
+
 #loadingError {
     text-align: center;
     justify-content: center;
