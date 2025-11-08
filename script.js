@@ -53,6 +53,16 @@ buttons.forEach(button => {
     });
 })
 
+// CLICK EVENTS
+// perma-reveal images when they're clicked
+let imgs = document.querySelectorAll("img");
+imgs.forEach(img => {
+    img.addEventListener("click", () => {
+        img.style.filter = "none";
+        img.style.animation = "none";
+    })
+})
+
 // ------------------------------------------------------------
 
 // ANIMATIONS
@@ -114,7 +124,6 @@ document.getElementById("jank").addEventListener("mousemove", function(e) {
 })
 
 // animate the image borders
-
 var imageElements = document.getElementsByClassName("image");
 const borderFrames = [
     {border: "dashed 2px #00ff00"},

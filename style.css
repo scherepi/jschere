@@ -3,6 +3,38 @@ body {
     color: #28f032;
     font-family: 'VT323', monospace;
 }
+@keyframes filter-enable {
+    from {
+        filter: none;
+    }
+    to {
+        filter: contrast(120%) brightness(50%) blur(4px);
+    }
+}
+
+@keyframes filter-dissolve {
+    from {
+        filter: contrast(120%) brightness(50%) blur(4px);
+    }
+    to {
+        filter: none;
+    }
+}
+img {
+    filter: contrast(120%) brightness(50%) blur(4px);
+}
+
+img:hover {
+    animation-name: filter-dissolve;
+    animation-duration: 0.5s;
+    filter: none;
+}
+
+img:not(:hover) {
+    animation-name: filter-enable;
+    animation-duration: 0.3s;
+}
+
 
 @keyframes scanlines {
     from {
@@ -66,7 +98,6 @@ h4 > strong {
     color: #7f1e83;
     size: 20px;
 }
-
 
 .buttons {
     display: flex;
