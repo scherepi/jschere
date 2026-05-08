@@ -81,6 +81,7 @@ const colorPalette = [
 ];
 
 const mapScalingFactor = 0.8;
+const distanceScalingFactor = 1.3;
 
 if (canvasElement.getContext) {
     console.log("found canvas context");
@@ -104,7 +105,7 @@ if (canvasElement.getContext) {
 function drawGraphFromDirectory(context, directoryData) {
     // using a recursive approach to populate the graph with our data.
     let dataRoot = directoryData;
-    let rootGraphElement = new GraphNode(canvasElement.width / 2, canvasElement.height / 2, 60, dataRoot, colorPalette[2], colorPalette[3]);
+    let rootGraphElement = new GraphNode(canvasElement.width / 2, canvasElement.height / 2, 60, dataRoot["name"], colorPalette[2], colorPalette[3]);
     console.log("Trying to at least draw root.");
     rootGraphElement.drawNode(context);
     console.log(dataRoot);
@@ -128,10 +129,10 @@ function extendGraph(parentNode, dataObject, ctx) {
     const angleInterval = ((Math.PI * 2) / dataObject["children"].length) + randomizedAngleOffset;
     for (let i = 0; i < dataObject["children"].length; i++) {
         let angle = i * angleInterval;
-        let x1 = parentNode.x + Math.cos(angle) * parentNode.size;
-        let y1 = parentNode.y + Math.sin(angle) * parentNode.size;
+        let x1 = parentNode.x + Math.cos(angle) * parentNode.size * distanceScalingFactor;
+        let y1 = parentNode.y + Math.sin(angle) * parentNode.size * distanceScalingFactor;
         let nextSize = parentNode.size * mapScalingFactor;
-        let nextNode = new GraphNode(x1, y1, parentNode.size * mapScalingFactor, dataObject)
+        let nextNode = new GraphNode(x1, y1, parentNode.size * mapScalingFactor, dataObject["name"], dataObject["traits"], colorPalette[2], colorPalette[3], parentNode)
         if (globalDebug) { console.log("Drawing next node"); }
         nextNode.drawNode(ctx);
         extendGraph(nextNode, dataObject["children"][i], ctx);
