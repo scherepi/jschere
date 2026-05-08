@@ -23,6 +23,12 @@
 					"traits": ["post", "introduction"],
 					"created-at": 1758247438,
 					"children": []
+				},
+				{
+					"name": "Acceptance",
+					"traits": ["post", "blog"],
+					"created-at": 1778260231,
+					"children": []
 				}
 			]
 		},

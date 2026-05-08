@@ -81,7 +81,7 @@ const colorPalette = [
 ];
 
 const mapScalingFactor = 0.8;
-const distanceScalingFactor = 1.3;
+const distanceScalingFactor = 2.2;
 
 if (canvasElement.getContext) {
     console.log("found canvas context");
@@ -110,7 +110,7 @@ function drawGraphFromDirectory(context, directoryData) {
     rootGraphElement.drawNode(context);
     console.log(dataRoot);
     console.log(`Found ${dataRoot["children"].length} children of root.`);
-    extendGraph(rootGraphElement, directoryData, context);
+    extendGraph(rootGraphElement, dataRoot, context);
 } 
 /**
  * A recursive function that calculates and draws all the children for a given node, then draws its children, and so on.
@@ -132,8 +132,8 @@ function extendGraph(parentNode, dataObject, ctx) {
         let x1 = parentNode.x + Math.cos(angle) * parentNode.size * distanceScalingFactor;
         let y1 = parentNode.y + Math.sin(angle) * parentNode.size * distanceScalingFactor;
         let nextSize = parentNode.size * mapScalingFactor;
-        let nextNode = new GraphNode(x1, y1, parentNode.size * mapScalingFactor, dataObject["name"], dataObject["traits"], colorPalette[2], colorPalette[3], parentNode)
-        if (globalDebug) { console.log("Drawing next node"); }
+        let nextNode = new GraphNode(x1, y1, parentNode.size * mapScalingFactor, dataObject["children"][i]["name"], dataObject["children"][i]["traits"], colorPalette[2], colorPalette[3], parentNode)
+        if (globalDebug) { console.log("Drawing next node", dataObject["children"][i]["name"]); }
         nextNode.drawNode(ctx);
         extendGraph(nextNode, dataObject["children"][i], ctx);
     }
